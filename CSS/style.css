@@ -1,0 +1,188 @@
+@media (min-width: 729px) {
+  nav > .fa-bars {
+    display: none;
+  }
+}
+
+@media (max-width: 729px) {
+  .hidden--mobile {
+    display: none;
+  }
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url("/assets/luke-chesser-pJadQetzTkI-unsplash.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+header{
+  position:fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 99;
+  background: rgba(255, 255, 255, .2);
+}
+
+.logo {
+  font-size: 2em;
+  color: white;
+  user-select: none;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.navigation a {
+  position: relative;
+  font-size: 1.1em;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 40px;
+
+}
+
+.navigation a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background: white;
+  left: 0;
+  bottom: -6px;
+  transform: scalex(0);
+  transform-origin: right;
+  transition: 0.5s;
+
+}
+
+.navigation a:hover::after {
+  transform: scalex(1);
+  transform-origin: left;
+}
+
+.navigation .btnLogin-popup {
+  width: 130px;
+  height: 50px;
+  background: transparent;
+  border: 2px solid white;
+  outline: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.1em;
+  color: white;
+  font-weight: 500;
+  margin-left: 40px;
+  transition: .5s;
+
+}
+
+.navigation .btnLogin-popup:hover {
+  background: white;
+  color: black;
+}
+
+.navigation a:hover {
+  background: transparent;
+  color: black;
+}
+
+p,h1,h2,h3{
+  font-size: 1.5em;
+  color: white;
+  user-select: none;
+  text-align: center;
+}
+
+
+.navigation #logout-button {
+  width: 130px;
+  height: 50px;
+  background: transparent;
+  border: 2px solid white;
+  outline: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.1em;
+  color: white;
+  font-weight: 500;
+  margin-left: 40px;
+  transition: .5s;
+}
+
+.navigation #logout-button:hover {
+  background: white;
+  color: black;
+}
+
+form,h2{
+  font-size: 1.5em;
+  color: white;
+  user-select: none;
+  text-align: center;
+}
+
+.container{
+  background: transparent;
+  color: white;
+
+}
+
+.button {
+  width: 100px;
+  height: 50px;
+  background: transparent;
+  border: 2px solid white;
+  outline: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: .8em;
+  color: white;
+  font-weight: 500;
+  margin-left: 40px;
+  transition: .5s;
+}
+
+
+.button:hover{
+  background: white;
+  color: black;
+}
+
+input{
+width: auto;
+height: auto;
+border-radius: 6px;
+color: black;
+}
+
+.home-header{
+  text-decoration: underline;
+  text-underline-offset: 10px;
+display: inline;
+}
+
+.main-p{
+  display: inline;
+}
+
+.email{
+  text-decoration: underline;
+  text-underline-offset: 10px;
+}
