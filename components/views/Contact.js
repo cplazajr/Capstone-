@@ -29,7 +29,7 @@ Im not sure what to put in here yet but we will see soon enough. Thank you for y
 <h2>Contact Form:</h2>
 <br>
 <br>
-<section>
+<section class="forming" >
 <form class="container">
 <div>
 <label for="firstName">First Name:</label>
