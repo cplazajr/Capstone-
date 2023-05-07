@@ -138,10 +138,10 @@ form,h2{
   text-align: center;
 }
 
+
 .container{
   background: transparent;
   color: white;
-
 }
 
 .button {
@@ -172,6 +172,10 @@ border-radius: 6px;
 color: black;
 }
 
+.forming{
+
+}
+
 .home-header{
   text-decoration: underline;
   text-underline-offset: 10px;
@@ -185,4 +189,27 @@ display: inline;
 .email{
   text-decoration: underline;
   text-underline-offset: 10px;
+}
+
+.blob {
+  width: 100%;
+  min-height: 100vh;
+  padding: 200px;
+}
+
+.task-app{
+  width: 100%;
+  max-width: 900px;
+  background: white;
+  margin: 100px 50px 50px;
+  padding: 50px 180px 70px;
+  border-radius: 15px;
+}
+
+.task-app h2 {
+color: black;
+display: flex;
+align-items: center;
+margin: 20px;
+padding-left: 45px;
 }

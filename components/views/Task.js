@@ -1,5 +1,9 @@
 import html from "html-literal";
 
 export default () => html`
-  <p>This is my Task Page</p>
+  <div class="blob">
+    <div class="task-app">
+      <h2>Dashboard</h2>
+    </div>
+  </div>
 `;
