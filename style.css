@@ -131,18 +131,6 @@ p,h1,h2,h3{
   color: black;
 }
 
-form,h2{
-  font-size: 1.5em;
-  color: white;
-  user-select: none;
-  text-align: center;
-}
-
-
-.container{
-  background: transparent;
-  color: white;
-}
 
 .button {
   width: 100px;
@@ -165,16 +153,7 @@ form,h2{
   color: black;
 }
 
-input{
-width: auto;
-height: auto;
-border-radius: 6px;
-color: black;
-}
 
-.forming{
-
-}
 
 .home-header{
   text-decoration: underline;
@@ -186,16 +165,13 @@ display: inline;
   display: inline;
 }
 
-.email{
-  text-decoration: underline;
-  text-underline-offset: 10px;
-}
 
 .blob {
   width: 100%;
   min-height: 100vh;
   padding: 200px;
 }
+
 
 .task-app{
   width: 100%;
@@ -212,4 +188,47 @@ display: flex;
 align-items: center;
 margin: 20px;
 padding-left: 45px;
+}
+
+.row{
+display: flex;
+align-items: center;
+justify-content: space-between;
+background: silver;
+border-radius: 30px;
+padding-left: 20px;
+margin-bottom: 25px;
+}
+
+input {
+flex: 1;
+border: none;
+outline: none;
+background: transparent;
+padding: 10px;
+font-weight: 15px;
+}
+
+button{
+  border: none;
+outline: none;
+padding: 15px 30px;
+background: rgba(44, 216, 247, 0.459);
+color: black;
+font-size: 15px;
+cursor: pointer;
+border-radius: 40px;
+}
+
+ul li{
+  list-style: none;
+  font-size: 15px;
+padding: 12px 9px 12px 45px;
+user-select: none;
+cursor: pointer;
+position: relative;
+}
+
+ul li::before{
+
 }
