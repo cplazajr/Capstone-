@@ -166,6 +166,18 @@ display: inline;
 }
 
 
+.contact-box {
+background-color: aliceblue;
+display: flex;
+align-items: center;
+border-radius: 15px;
+max-width: 500px;
+
+}
+
+
+
+
 .blob {
   width: 100%;
   min-height: 100vh;
@@ -209,6 +221,7 @@ padding: 10px;
 font-weight: 15px;
 }
 
+
 button{
   border: none;
 outline: none;
@@ -229,6 +242,3 @@ cursor: pointer;
 position: relative;
 }
 
-ul li::before{
-
-}

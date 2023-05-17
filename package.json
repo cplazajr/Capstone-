@@ -28,6 +28,7 @@
     "express": "^4.18.2",
     "html-literal": "^1.1.0",
     "lodash": "^4.17.21",
+    "mongodb": "^5.5.0",
     "mongoose": "^6.11.1",
     "navigo": "^8.11.1",
     "parcel": "^2.8.3",
