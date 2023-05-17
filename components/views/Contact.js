@@ -18,11 +18,16 @@ export default () => html`
   <h2>Contact Form:</h2>
   <br />
   <br />
-  <form>
-    <div class="input-group">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" placeholder="name" />
-    </div>
-    <div></div>
-  </form>
+  <div class="contact-box">
+    <form>
+      <input type="text" class="input-field" placeholder="Your Name" />
+      <input type="text" class="input-field" placeholder="Your Email" />
+      <input type="text" class="input-field" placeholder="Subject" />
+      <textarea
+        type="text"
+        class="input-field"
+        placeholder="Your Message"
+      ></textarea>
+    </form>
+  </div>
 `;
