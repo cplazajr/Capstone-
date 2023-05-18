@@ -14,14 +14,35 @@ function render(state = store.Home) {
   `;
 
   afterRender(state);
+  addTask();
 
   router.updatePageLinks();
 }
 
 // add menu toggle to bars icon in nav bar
-function afterRender(state) {
+function afterRender() {
   document.querySelector(".fa-bars").addEventListener("click", () => {
-    document.querySelector("nav > ul").classList.toggle("hidden--mobile");
+    document.querySelector("#mobile-nav").classList.toggle("hidden--mobile");
+  });
+}
+
+// Dashboard Code
+let taskList = [];
+
+function addTask() {
+  document.querySelector("#btn-listen").addEventListener("click", event => {
+    event.preventDefault();
+    let value = document.querySelector("#input-box").value;
+    let list = document.querySelector("#list-box");
+    let li = document.createElement("li");
+
+    taskList.push(value);
+    li.appendChild(document.createTextNode(value));
+    li.setAttribute("id", `task ${taskList.length - 1}`);
+    list.appendChild(li);
+    document.querySelector("#taskForm").reset();
+
+    //console.log(taskList);
   });
 }
 

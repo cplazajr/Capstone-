@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@parcel/transformer-webmanifest": "^2.8.3",
     "buffer": "^5.7.1",
     "eslint": "^8.4.1",
     "eslint-config-prettier": "^6.15.0",
