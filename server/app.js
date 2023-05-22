@@ -4,6 +4,7 @@ const express = require("express");
 const app = express();
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
+const tasks = require("./routers/tasks");
 
 dotenv.config();
 
@@ -51,6 +52,7 @@ app.get("/status", (request, response) => {
   response.send(JSON.stringify({ message: "Service healthy" }));
 });
 
+app.use("/tasks", tasks);
 // Tell the Express app to start listening
 // Let the humans know I am running and listening on 4040
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));

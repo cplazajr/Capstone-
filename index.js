@@ -92,12 +92,27 @@ router.hooks({
   }
 });
 
+// router
+//   .on({
+//     "/": () => render(),
+//     ":view": params => {
+//       let view = capitalize(params.data.view);
+//       if (store.hasOwnProperty(view)) {
+//         render(store[view]);
+//       } else {
+//         // render(store.Viewnotfound);
+//         console.log(`View ${view} not defined`);
+//       }
+//     }
+//   })
+//   .resolve();
+
 router
   .on({
     "/": () => render(),
     ":view": params => {
       let view = capitalize(params.data.view);
-      if (store.hasOwnProperty(view)) {
+      if (Object.prototype.hasOwnProperty.call(store, view)) {
         render(store[view]);
       } else {
         // render(store.Viewnotfound);
