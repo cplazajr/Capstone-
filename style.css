@@ -37,6 +37,10 @@
     padding: 15px 15%;
   }
 
+.about-container{
+  padding-top: 11em;
+}
+
 }
 
 
@@ -250,10 +254,12 @@ nav ul{
 }
 
 .weather-info{
-  margin-top: 1em;
-  font-size: 30px;
+  display: flex;
+  margin-top: 5em;
+  font-size: 25px;
   font-weight: bold;
   max-width: 18em;
+
 }
 
 .contact-container {
