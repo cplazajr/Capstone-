@@ -30,22 +30,51 @@ function afterRender() {
 let taskList = [];
 
 function addTask() {
-  document.querySelector("#btn-listen").addEventListener("click", event => {
-    event.preventDefault();
-    let value = document.querySelector("#input-box").value;
-    let list = document.querySelector("#list-box");
-    let li = document.createElement("li");
+  document.querySelector("#btn-listen").addEventListener(
+    "click",
+    event => {
+      event.preventDefault();
+      let value = document.querySelector("#input-box").value;
+      let list = document.querySelector("#list-box");
+      let li = document.createElement("li");
 
-    taskList.push(value);
-    li.appendChild(document.createTextNode(value));
-    li.setAttribute("id", `task ${taskList.length - 1}`);
-    list.appendChild(li);
-    document.querySelector("#taskForm").reset();
+      taskList.push(value);
+      li.appendChild(document.createTextNode(value));
+      li.setAttribute("id", `task ${taskList.length - 1}`);
+      list.appendChild(li);
+      document.querySelector("#taskForm").reset();
+
+      //Added New
+      if (state.view === "Task") {
+        document.querySelector("form").addEventListener("submit", event => {
+          event.preventDefault();
+
+          const inputList = event.target.elements;
+          console.log("Input Element List", inputList);
+
+          const requestData = {
+            customer: inputList.name.value,
+            crust: inputList.description.value,
+            cheese: inputList.status.value
+          };
+          console.log("request Body", requestData);
+
+          axios
+            .post(`${process.env.CAPSTONE_API}/tasks`, requestData)
+            .then(response => {
+              store.Task.taskList.push(response.data);
+              router.navigate("/Task");
+            })
+            .catch(error => {
+              console.log("It puked", error);
+            });
+        });
+      }
+    }
 
     //console.log(taskList);
-  });
+  );
 }
-
 router.hooks({
   before: (done, params) => {
     const view =

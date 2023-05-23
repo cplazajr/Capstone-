@@ -6,7 +6,8 @@ const taskSchema = new mongoose.Schema({
     required: true
   },
   description: {
-    type: String
+    type: String,
+    required: true
   },
   status: {
     type: String,
@@ -16,4 +17,4 @@ const taskSchema = new mongoose.Schema({
 
 const Task = mongoose.model("Task", taskSchema);
 
-module.exports = Task; //exports Task out --> becomes JS module that can be called in another file using a require
+module.exports = Task;
