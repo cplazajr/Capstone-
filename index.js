@@ -14,7 +14,7 @@ function render(state = store.Home) {
   `;
 
   afterRender(state);
-  addTask();
+  addTask(state);
 
   router.updatePageLinks();
 }
@@ -29,7 +29,7 @@ function afterRender() {
 // Dashboard Code
 let taskList = [];
 
-function addTask() {
+function addTask(state) {
   document.querySelector("#btn-listen").addEventListener(
     "click",
     event => {
