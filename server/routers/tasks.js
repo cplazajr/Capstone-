@@ -1,5 +1,5 @@
 const { Router } = require("express");//grabs router from express framework using deconstruction process --> {Router} pulls router object out of express (expressjs.com for reference)
-const Task = require("../models/Task");//imports Pizza model into router
+const Task = require("../models/Task");
 const router = Router();//instantiate router and store in Router()
 // Create record in MongoDB Atlas using Mongoose.js ORM
 router.post("/", (request, response) => {
