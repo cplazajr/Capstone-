@@ -14,7 +14,7 @@ function render(state = store.Home) {
   `;
 
   afterRender(state);
-  addTask(state);
+  //addTask(state);
 
   router.updatePageLinks();
 }
@@ -52,21 +52,20 @@ function afterRender(state) {
 }
 
 // Dashboard Code
-let taskList = [];
+//let taskList = [];
 
-function addTask(state) {
-  //document.querySelector("#btn-listen").addEventListener("click", event => {
-  //event.preventDefault();
-  //let value = document.querySelector("#input-box").value;
-  //let list = document.querySelector("#list-box");
-  //let li = document.createElement("li");
-  //taskList.push(value);
-  //li.appendChild(document.createTextNode(value));
-  //li.setAttribute("id", `task ${taskList.length - 1}`);
-  //list.appendChild(li);
-  //document.querySelector("#taskForm").reset();
-  //Added New
-}
+//function addTask(state) {
+//document.querySelector("#btn-listen").addEventListener("click", event => {
+//event.preventDefault();
+//let value = document.querySelector("#input-box").value;
+//let list = document.querySelector("#list-box");
+//let li = document.createElement("li");
+//taskList.push(value);
+//li.appendChild(document.createTextNode(value));
+//li.setAttribute("id", `task ${taskList.length - 1}`);
+//list.appendChild(li);
+//document.querySelector("#taskForm").reset();
+//Added New
 
 //console.log(taskList);
 // );

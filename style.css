@@ -377,6 +377,22 @@ form input:focus, form textarea:focus{
   margin-left: 5em;
 }
 
+.taskin{
+  display: flex;
+justify-content: center;
+align-items: center;
+padding-top: 5em;
+}
+
+.todo-input{
+  padding: 0.2rem;
+  padding-left: 1rem;
+  border: none;
+  background: rgb(160, 153, 153);
+  font-size: 1.2rem;
+  border-radius: 3rem;
+}
+
 
 .add-task-btn {
   border: none;

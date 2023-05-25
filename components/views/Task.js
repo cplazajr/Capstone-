@@ -26,13 +26,12 @@ export default () => html`
           placeholder="Add your text"
           required
         />
-        <input type="submit" name="submit" value="Submit" />
+        <button type="submit" name="submit">
+          <i class="fa-solid fa-circle-plus"></i>
+        </button>
       </form>
       <ul id="list-box"></ul>
+      </div>
     </div>
   </div>
 `;
-
-{
-  /* <button id="btn-listen" class="add-task-btn">ADD</button> */
-}
