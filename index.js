@@ -20,10 +20,12 @@ function render(state = store.Home) {
 }
 
 // add menu toggle to bars icon in nav bar
+
 function afterRender(state) {
   document.querySelector(".fa-bars").addEventListener("click", () => {
     document.querySelector("#mobile-nav").classList.toggle("hidden--mobile");
   });
+
   if (state.view === "Task") {
     document.querySelector("form").addEventListener("submit", event => {
       event.preventDefault();
@@ -41,7 +43,7 @@ function afterRender(state) {
       axios
         .post(`${process.env.CAPSTONE_API}/tasks`, requestData)
         .then(response => {
-          store.Task.taskList.push(response.data);
+          store.Task.tasks.push(response.data);
           router.navigate("/Task");
         })
         .catch(error => {
@@ -49,27 +51,29 @@ function afterRender(state) {
         });
     });
   }
+
 }
 
-// Dashboard Code
-//let taskList = [];
+//Dashboard Code
+// let taskList = [];
 
-//function addTask(state) {
-//document.querySelector("#btn-listen").addEventListener("click", event => {
-//event.preventDefault();
-//let value = document.querySelector("#input-box").value;
-//let list = document.querySelector("#list-box");
-//let li = document.createElement("li");
-//taskList.push(value);
-//li.appendChild(document.createTextNode(value));
-//li.setAttribute("id", `task ${taskList.length - 1}`);
-//list.appendChild(li);
-//document.querySelector("#taskForm").reset();
-//Added New
+// function addTask() {
+//   document.querySelector("#submit").addEventListener("click", event => {
+//     event.preventDefault();
+//     let value = document.querySelector("#input-box").value;
+//     let list = document.querySelector("#list-box");
+//     let li = document.createElement("li");
+//     taskList.push(value);
+//     li.appendChild(document.createTextNode(value));
+//     li.setAttribute("id", `task ${taskList.length - 1}`);
+//     list.appendChild(li);
+//     document.querySelector("#taskForm").reset();
+//     //Added New
 
-//console.log(taskList);
-// );
+//     console.log(taskList);
+//   });
 // }
+
 router.hooks({
   before: (done, params) => {
     const view =
@@ -102,10 +106,26 @@ router.hooks({
           });
         break;
 
+      case "Task":
+        // New Axios get request utilizing already made environment variable
+        axios
+          .get(`${process.env.CAPSTONE_API}/tasks`)
+          .then(response => {
+            // We need to store the response to the state, in the next step but in the meantime let's see what it looks like so that we know what to store from the response.
+            console.log("response", response);
+            store.Task.tasks = response.data;
+            done();
+          })
+          .catch(error => {
+            console.log("It puked", error);
+            done();
+          });
+        break;
       default:
         done();
     }
   },
+
   already: params => {
     const view =
       params && params.data && params.data.view
