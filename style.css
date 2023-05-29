@@ -33,7 +33,7 @@
     padding: 0 1.5em;
   }
 
-  .add-task-btn {
+  #submit {
     padding: 15px 15%;
   }
 
@@ -339,6 +339,19 @@ form input:focus, form textarea:focus{
   align-items: center;
 }
 
+#taskData{
+  display: flex;
+  justify-content:center;
+  overflow: scroll;
+  max-height: 57vh;
+}
+
+th{
+align-items: center;
+padding-right: 355px;
+}
+
+
 .task-app {
   height: 75%;
   width: 80%;
@@ -361,7 +374,7 @@ form input:focus, form textarea:focus{
   background: rgb(230, 227, 227);
   border-radius: 30px;
   padding-left: 20px;
-  margin: 25px;
+  margin: 30px;
 }
 
 #input-box {
@@ -378,23 +391,22 @@ form input:focus, form textarea:focus{
 }
 
 .taskin{
-  display: flex;
+display: flex;
 justify-content: center;
 align-items: center;
 padding-top: 5em;
 }
 
-.todo-input{
+#name, #description, #status{
   padding: 0.2rem;
   padding-left: 1rem;
   border: none;
-  background: rgb(160, 153, 153);
-  font-size: 1.2rem;
+  font-size: 1.0rem;
   border-radius: 3rem;
 }
 
 
-.add-task-btn {
+#submit {
   border: none;
   outline: none;
   padding: 15px 5%;
@@ -406,7 +418,7 @@ padding-top: 5em;
   transition: all 0.3s ease-in-out;
 }
 
-.add-task-btn:hover{
+#submit:hover{
   background: rgb(18, 182, 211);
 }
 
