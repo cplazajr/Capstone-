@@ -1,20 +1,14 @@
 const mongoose = require("mongoose");
 
 const taskSchema = new mongoose.Schema({
-  name: {
+  task: {
     type: String,
     required: true
   },
-  description: {
-    type: String,
-    required: true
-  },
-  status: {
-    type: String,
-    required: true
+  completed: {
+    type: Boolean,
+    default: false
   }
-}); //turns schema into a model named Task. taskSchema passed into second argument of model method. Empowers schema to manipulate database.
+});
 
-const Task = mongoose.model("Task", taskSchema);
-
-module.exports = Task;
+module.exports = new mongoose.model("Task", taskSchema);
