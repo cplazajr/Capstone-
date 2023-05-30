@@ -357,6 +357,103 @@ padding-right: 355px;
   width: 80%;
   background: white;
   border-radius: 15px;
+  padding: 1rem; /* Add some padding around the content */
+}
+
+.row {
+  position: sticky;
+  top: 0;
+  background: white; /* Make sure the form has a background */
+  z-index: 10; /* Stack the form above the task list */
+}
+
+.task-list-container {
+  max-height: calc(75% - 100px); /* Adjust this value according to the height of your form and header */
+  overflow-y: auto;
+}
+
+.task-list {
+  list-style-type: none;
+  padding: 0px 30px 0px;
+}
+
+.task-list li {
+  width: 100%;
+  box-sizing: border-box;  /* this makes sure padding and border are included in element's total width */
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background: #e8e8e8;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.task-text {
+  flex-grow: 1;  /* this will make the task text take up all remaining space */
+  padding-right: 10px;  /* add some padding to avoid text sticking to the button */
+}
+
+.delete-btn {
+  /* Adjust as needed, just make sure it does not grow to take extra space */
+}
+
+.task-list li button {
+  margin-left: 150px;
+  padding: 5px 10px;
+  border: none;
+  background-color: #ff6b6b;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.task-list li button:hover {
+  background-color: #fa5252;
+}
+
+
+@media screen and (max-width: 600px) {
+  .task-app {
+    width: 100%;
+  }
+}
+
+#task-form {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+}
+
+#task-input {
+  flex-grow: 1; /* This allows the input to take up remaining space */
+  margin-right: 0.5rem; /* Add some space between the input and button */
+  padding: 0.5rem;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+}
+
+#task-submit {
+  padding: 0.5rem 1rem;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#task-submit:hover {
+  background-color: #0056b3;
 }
 
 .task-app h2 {
