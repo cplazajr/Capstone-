@@ -1,13 +1,18 @@
+const dotenv = require("dotenv");
 const express = require("express");
 const mongoose = require("mongoose");
-const bodyParser = require('body-parser');
+const bodyParser = require("body-parser");
+
+dotenv.config();
 
 const app = express();
 
-mongoose.connect("mongodb://localhost/local", {
+mongoose.connect(`${process.env.MONGODB}`, {
   useNewUrlParser: true,
-  useUnifiedTopology: true,
+  useUnifiedTopology: true
 });
+
+console.log(process.env.MONGODB);
 
 const PORT = process.env.PORT || 4040; // we use || to provide a default value
 
