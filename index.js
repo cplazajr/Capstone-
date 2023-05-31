@@ -34,10 +34,10 @@ function afterRender(state) {
         alert("Please enter a task!");
       } else {
         const task = taskInputElement.value;
-        await fetch("http://localhost:4040/tasks/add/task", {
+        await fetch(`${process.env.CAPSTONE_API}/tasks/add/task`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ task: task }),
+          body: JSON.stringify({ task: task })
         });
         taskInputElement.value = "";
         fetchTasks();
@@ -49,13 +49,16 @@ function afterRender(state) {
       const taskValue = taskInput.value.trim();
 
       if (taskValue) {
-        const response = await fetch("http://localhost:4040/tasks/add/task", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ task: taskValue }),
-        });
+        const response = await fetch(
+          `${process.env.CAPSTONE_API}/tasks/add/task`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ task: taskValue })
+          }
+        );
 
         if (response.ok) {
           // Clear the task input
@@ -78,26 +81,26 @@ router.hooks({
     done();
   },
 
-  already: (params) => {
+  already: params => {
     const view =
       params && params.data && params.data.view
         ? capitalize(params.data.view)
         : "Home";
 
     render(store[view]);
-  },
+  }
 });
 
 router
   .on({
     "/": () => render(),
-    ":view": (params) => {
+    ":view": params => {
       let view = capitalize(params.data.view);
       if (Object.prototype.hasOwnProperty.call(store, view)) {
         render(store[view]);
       } else {
         console.log(`View ${view} not defined`);
       }
-    },
+    }
   })
   .resolve();
