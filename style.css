@@ -41,6 +41,7 @@
   padding-top: 11em;
 }
 
+
 }
 
 
@@ -337,6 +338,7 @@ form input:focus, form textarea:focus{
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0 1em;
 }
 
 #taskData{
@@ -351,6 +353,11 @@ align-items: center;
 padding-right: 355px;
 }
 
+.dash{
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+}
 
 .task-app {
   height: 75%;
@@ -358,6 +365,7 @@ padding-right: 355px;
   background: white;
   border-radius: 15px;
   padding: 1rem; /* Add some padding around the content */
+  box-shadow: 0 0 20px 0 rgb(8, 204, 188);
 }
 
 .row {
@@ -378,6 +386,11 @@ padding-right: 355px;
 }
 
 .task-list li {
+  display: flex;
+  justify-content:space-between;
+  padding-left: 10px;
+  padding-top: 15px;
+  padding-right: 17px;
   width: 100%;
   box-sizing: border-box;  /* this makes sure padding and border are included in element's total width */
 }
@@ -387,15 +400,14 @@ padding-right: 355px;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  background: #e8e8e8;
+  background: #eee0e0;
   margin-bottom: 10px;
   border-radius: 5px;
-  width: 100%;
 }
 
 .task-text {
   flex-grow: 1;  /* this will make the task text take up all remaining space */
-  padding-right: 10px;  /* add some padding to avoid text sticking to the button */
+  padding-right: 25px;  /* add some padding to avoid text sticking to the button */
 }
 
 .delete-btn {
@@ -403,10 +415,10 @@ padding-right: 355px;
 }
 
 .task-list li button {
-  margin-left: 150px;
+  display:inline-flex;
   padding: 5px 10px;
   border: none;
-  background-color: #ff6b6b;
+  background-color: #ec1e1e;
   color: white;
   border-radius: 5px;
   cursor: pointer;
@@ -414,14 +426,18 @@ padding-right: 355px;
 }
 
 .task-list li button:hover {
-  background-color: #fa5252;
+  background-color: #fa7171;
 }
 
 
-@media screen and (max-width: 600px) {
+
+@media screen and (max-width: 729px) {
   .task-app {
     width: 100%;
   }
+
+
+
 }
 
 #task-form {

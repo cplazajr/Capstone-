@@ -4,10 +4,10 @@ const Task = require("../models/Task");
 // routes
 router.get("/", (req, res) => {
   Task.find()
-    .then((tasks) => {
+    .then(tasks => {
       res.json(tasks);
     })
-    .catch((err) => {
+    .catch(err => {
       console.error("Error fetching tasks:", err);
       res.status(500).json({ error: "Failed to fetch tasks" });
     });
@@ -25,15 +25,15 @@ router.post("/add/task", (req, res) => {
 
       // Fetch all tasks and send the updated task list back to the client
       Task.find()
-        .then((tasks) => {
+        .then(tasks => {
           res.json(tasks);
         })
-        .catch((err) => {
+        .catch(err => {
           console.error("Error fetching tasks:", err);
           res.status(500).json({ error: "Failed to fetch tasks" });
         });
     })
-    .catch((err) => {
+    .catch(err => {
       console.error("Error saving task:", err);
       res.status(500).json({ error: "Failed to save task" });
     });
@@ -47,19 +47,18 @@ router.delete("/delete/task/:id", (req, res) => {
 
       // Fetch all tasks and send the updated task list back to the client
       Task.find()
-        .then((tasks) => {
+        .then(tasks => {
           res.json(tasks);
         })
-        .catch((err) => {
+        .catch(err => {
           console.error("Error fetching tasks:", err);
           res.status(500).json({ error: "Failed to fetch tasks" });
         });
     })
-    .catch((err) => {
+    .catch(err => {
       console.error("Error deleting task:", err);
       res.status(500).json({ error: "Failed to delete task" });
     });
 });
-
 
 module.exports = router;

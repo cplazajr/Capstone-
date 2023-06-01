@@ -6,7 +6,7 @@ export const fetchTasks = async () => {
     const tasks = await response.json();
     const ulElement = document.querySelector(".task-app ul");
     ulElement.innerHTML = ""; // Clear existing task list
-    tasks.forEach((task) => {
+    tasks.forEach(task => {
       const liElement = document.createElement("li");
       liElement.textContent = task.task;
 
@@ -22,10 +22,10 @@ export const fetchTasks = async () => {
   }
 };
 
-export const deleteTask = async (taskId) => {
+export const deleteTask = async taskId => {
   try {
     await fetch(`${process.env.CAPSTONE_API}/tasks/delete/task/${taskId}`, {
-      method: 'DELETE'
+      method: "DELETE"
     });
     fetchTasks();
   } catch (error) {
@@ -33,8 +33,7 @@ export const deleteTask = async (taskId) => {
   }
 };
 
-
-export default (state) => {
+export default state => {
   fetchTasks();
   return html`
     <div class="blob">
