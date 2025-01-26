@@ -22,6 +22,25 @@ export const fetchTasks = async () => {
   }
 };
 
+//New Block Of Code Added 2025
+document.querySelector("#task-submit").addEventListener("click", async () => {
+  const taskInput = document.querySelector("#task-input");
+  const taskValue = taskInput.value.trim();
+  if (taskValue) {
+    try {
+      await fetch(`${process.env.CAPSTONE_API}/tasks`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ task: taskValue })
+      });
+      taskInput.value = ""; // Clear input after adding task
+      fetchTasks(); // Refresh the task list
+    } catch (error) {
+      console.error("Error adding task:", error);
+    }
+  }
+});
+
 export const deleteTask = async taskId => {
   try {
     await fetch(`${process.env.CAPSTONE_API}/tasks/delete/task/${taskId}`, {
