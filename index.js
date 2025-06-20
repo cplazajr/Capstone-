@@ -4,6 +4,8 @@ import Navigo from "navigo";
 import { capitalize } from "lodash";
 import { fetchTasks } from "./components/views/Task";
 
+const API_BASE = process.env.CAPSTONE_API || "http://localhost:4040";
+
 const router = new Navigo("/");
 
 function render(state = store.Home) {
@@ -26,47 +28,35 @@ function afterRender(state) {
 
   const form = document.querySelector("#task-form");
   const taskInput = document.querySelector("#task-input");
-  const taskSubmitButton = document
-    .querySelector("#task-submit")
-    .addEventListener("click", async () => {
-      const taskInputElement = document.querySelector("#task-input");
-      if (taskInputElement.value.trim() === "") {
-        alert("Please enter a task!");
-      } else {
-        const task = taskInputElement.value;
-        await fetch(`${process.env.CAPSTONE_API}/tasks/add/task`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ task: task })
-        });
-        taskInputElement.value = "";
-        fetchTasks();
-      }
-    });
+  const taskSubmitButton = document.querySelector("#task-submit");
 
   if (form && taskInput && taskSubmitButton) {
-    taskSubmitButton.addEventListener("click", async () => {
+    taskSubmitButton.addEventListener("click", async event => {
+      event.preventDefault();
       const taskValue = taskInput.value.trim();
 
-      if (taskValue) {
-        const response = await fetch(
-          `${process.env.CAPSTONE_API}/tasks/add/task`,
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ task: taskValue })
-          }
-        );
+      if (!taskValue) {
+        alert("Please enter a task!");
+        return;
+      }
 
-        if (response.ok) {
-          // Clear the task input
-          taskInput.value = "";
-
-          // Fetch the updated task list and update the view
-          fetchTasks();
+      const response = await fetch(
+        `${API_BASE}/tasks/add/task`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ task: taskValue })
         }
+      );
+
+      if (response.ok) {
+        // Clear the task input
+        taskInput.value = "";
+
+        // Fetch the updated task list and update the view
+        fetchTasks();
       }
     });
   }
