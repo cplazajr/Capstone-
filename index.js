@@ -4,6 +4,8 @@ import Navigo from "navigo";
 import { capitalize } from "lodash";
 import { fetchTasks } from "./components/views/Task";
 
+const API_BASE = process.env.CAPSTONE_API || "http://localhost:4040";
+
 const router = new Navigo("/");
 
 function render(state = store.Home) {
@@ -29,7 +31,8 @@ function afterRender(state) {
   const taskSubmitButton = document.querySelector("#task-submit");
 
   if (form && taskInput && taskSubmitButton) {
-    taskSubmitButton.addEventListener("click", async () => {
+    taskSubmitButton.addEventListener("click", async event => {
+      event.preventDefault();
       const taskValue = taskInput.value.trim();
 
       if (!taskValue) {
@@ -38,7 +41,11 @@ function afterRender(state) {
       }
 
       const response = await fetch(
+ x51k4t-codex/find-and-fix-a-bug
+        `${API_BASE}/tasks/add/task`,
+
         `${process.env.CAPSTONE_API}/tasks/add/task`,
+
         {
           method: "POST",
           headers: {

@@ -1,8 +1,10 @@
 import html from "html-literal";
 
+const API_BASE = process.env.CAPSTONE_API || "http://localhost:4040";
+
 export const fetchTasks = async () => {
   try {
-    const response = await fetch(`${process.env.CAPSTONE_API}/tasks`);
+    const response = await fetch(`${API_BASE}/tasks`);
     const tasks = await response.json();
     const ulElement = document.querySelector(".task-app ul");
     ulElement.innerHTML = ""; // Clear existing task list
@@ -24,7 +26,7 @@ export const fetchTasks = async () => {
 
 export const deleteTask = async taskId => {
   try {
-    await fetch(`${process.env.CAPSTONE_API}/tasks/delete/task/${taskId}`, {
+    await fetch(`${API_BASE}/tasks/delete/task/${taskId}`, {
       method: "DELETE"
     });
     fetchTasks();
