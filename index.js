@@ -41,7 +41,11 @@ function afterRender(state) {
       }
 
       const response = await fetch(
+ x51k4t-codex/find-and-fix-a-bug
         `${API_BASE}/tasks/add/task`,
+
+        `${process.env.CAPSTONE_API}/tasks/add/task`,
+
         {
           method: "POST",
           headers: {
